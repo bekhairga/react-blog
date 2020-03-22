@@ -8,14 +8,14 @@
         "start": "nodemon ./server/index.js"
     },
     "engine": {
-      "node":"12.13.0",
-      "npm": "6.12.0"
+        "node": "12.13.0",
+        "npm": "6.12.0"
     },
     "author": "",
     "license": "ISC",
     "devDependencies": {
         "express": "^4.17.1",
-        "mongoose": "^5.4.20"
+        "mongoose": "^5.9.5"
     },
     "dependencies": {
         "bcrypt": "^4.0.1",
