@@ -11,5 +11,9 @@
   "devDependencies": {
     "express": "^4.17.1",
     "mongoose": "^5.4.20"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3"
   }
 }
