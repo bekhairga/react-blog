@@ -1,19 +1,27 @@
 {
-  "name": "travelshop",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "express": "^4.17.1",
-    "mongoose": "^5.4.20"
-  },
-  "dependencies": {
-    "body-parser": "^1.18.3",
-    "cookie-parser": "^1.4.3"
-  }
+    "name": "travelshop",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "node ./server/index.js",
+        "start": "nodemon ./server/index.js"
+    },
+    "engine": {
+      "node":"12.13.0",
+      "npm": "6.12.0"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "express": "^4.17.1",
+        "mongoose": "^5.4.20"
+    },
+    "dependencies": {
+        "bcrypt": "^4.0.1",
+        "body-parser": "^1.18.3",
+        "cookie-parser": "^1.4.3",
+        "jsonwebtoken": "^8.5.1",
+        "nodemon": "^2.0.2"
+    }
 }
