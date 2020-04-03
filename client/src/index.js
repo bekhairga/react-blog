@@ -4,24 +4,21 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
-import promiseMiddleware from "redux-promises";
+import promiseMiddleware from "redux-promise";
 import thunk from "redux-thunk";
 import App from "./components/App";
 import reducer from "./reducers";
+import "materialize-css/dist/css/materialize.min.css";
 import * as serviceWorker from "./serviceWorker";
-const createStoreWithMiddleware = applyMiddleware(
-    promiseMiddleware,
-    thunk
-)(createStore);
+import { composeWithDevTools } from "redux-devtools-extension";
+
+const store = createStore(
+    reducer,
+    composeWithDevTools(applyMiddleware(promiseMiddleware, thunk))
+);
 ReactDOM.render(
     <React.StrictMode>
-        <Provider
-            store={createStoreWithMiddleware(
-                reducer,
-                window.__REDUX_DEVTOOLS_EXTENSION__ &&
-                    window.__REDUX_DEVTOOLS_EXTENSION__()
-            )}
-        >
+        <Provider store={store}>
             <BrowserRouter>
                 <App />
             </BrowserRouter>

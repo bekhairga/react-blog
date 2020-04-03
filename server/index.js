@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.post("/api/user/register", (req, res) => {
+app.post("/api/users/register", (req, res) => {
     const user = new User(req.body);
     user.save((err, userData) => {
         if (err) return res.json({ success: false, err });
@@ -27,7 +27,7 @@ app.post("/api/user/register", (req, res) => {
     });
 });
 
-app.post("/api/user/login", (req, res) => {
+app.post("/api/users/login", (req, res) => {
     User.findOne({ email: req.body.email }, (err, user) => {
         if (!user) {
             return res.json({
@@ -65,7 +65,7 @@ app.get("/", function(req, res) {
     res.send("Hello");
 });
 
-app.get("/api/user/auth", auth, (req, res) => {
+app.get("/api/users/auth", auth, (req, res) => {
     res.status(200).json({
         _id: req._id,
         _isAuth: true,
@@ -76,7 +76,7 @@ app.get("/api/user/auth", auth, (req, res) => {
     });
 });
 
-app.get("/api/user/logout", auth, (req, res) => {
+app.get("/api/users/logout", auth, (req, res) => {
     User.findOneAndUpdate({ _id: req.user.id }, { token: "" }, (err, doc) => {
         if (err) {
             return res.json({ success: false, err });
